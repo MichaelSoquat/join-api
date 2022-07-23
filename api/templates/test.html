@@ -1,0 +1,16 @@
+{%extends "base.html"%} {%block content%}
+<script>
+    async function runJs() {
+        response = await fetch('http://127.0.0.1:8000/tasks/');
+        console.log(response)
+        let responsetoJson = response.json()
+        console.log(responsetoJson)
+    }
+</script>
+<h1>Test-app</h1>
+
+{% for user in users %}
+<div>{{user.name}}</div>
+<div>{{user.age}}</div>
+
+<button onclick="runJs()">runJs</button> {%endfor%} {%endblock%}
